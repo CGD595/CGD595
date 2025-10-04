@@ -55,7 +55,7 @@ Here are some of the projects I've worked on. I believe in showing my work, so p
 
 ### 🎓 Education & Certifications
 
-* **Bachelors, Computer Science in AI and Data Science** (2022 - 2026)
+* **Bachelors, Computer Science in AI and Data Science**
     * *Gyalpozhing College of Information Technology*
 * **Langchain: Develop AI Agents with LangChain & LangGraph**
 * **The Complete Class for Agentic AI Design Patterns**
