@@ -19,8 +19,8 @@ Here are some of the projects I've worked on. I believe in showing my work, so p
 
 | Project Name | Description | Technologies Used | Links |
 | :--- | :--- | :--- | :--- |
-| **Zora AI** | As the project lead, I managed the entire development of a personalized AI learning platform that provides students with custom videos, content, and quizzes to create unique learning paths. | Next.js, React, Node.js, Drizzle ORM, PostgreSQL | [Code](https://github.com/CGD595/Zora-AI) |
-| **Thunku AI PDF Summarizer** | An AI tool for converting PDF documents into summarized text, built over a weekend to explore the Gemini API. It uses abstractive summarization to generate new, concise sentences. | Next.js, Node.js, Gemini API, Vercel | [Live Demo](https://thunku.vercel.app/) / [Code](https://github.com/CGD595/Thunku) |
+| **Zora AI** | As the project lead, I managed the entire development of a personalized AI learning platform that provides students with custom videos, content, and quizzes to create unique learning paths. | Next.js, React, Node.js, Drizzle ORM, PostgreSQL | [Live Demo](https://zora-cyan.vercel.app/) |
+| **Thunku AI PDF Summarizer** | An AI tool for converting PDF documents into summarized text, built over a weekend to explore the Gemini API. It uses abstractive summarization to generate new, concise sentences. | Next.js, Node.js, Gemini API, Vercel | [Live Demo](https://thunku.vercel.app/) |
 | **Anti-Corruption Commission AI Tool** | A secure, conversational AI chatbot to enhance sensitive investigative work for Bhutan's Anti-Corruption Commission using a locally deployed Llama model to ensure data privacy. | Llama (Local), Secure UI | In Development |
 | **Zeebar Resort Booking System** | Developed the resort's commercial website and booking system from scratch, including a secure payment gateway integrated with Bhutan's Royal Monetary Authority (RMA). | Responsive Front-End, RMA Payment Gateway | [Live Site](https://zeebarresort.bt/) |
 
