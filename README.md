@@ -46,9 +46,6 @@ Here are some of the technologies I've been working with:
 
 ---
 
-
----
-
 ### 🎓 Education & Certifications
 
 * **Bachelors, Computer Science in AI and Data Science** 
