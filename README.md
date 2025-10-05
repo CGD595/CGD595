@@ -1,62 +1,20 @@
-# Chime Gyeltshen Dorji | AI-Focused Full-Stack Engineer
+<h1 align="center">Hi 👋, I'm Chime Gyeltshen Dorji</h1>
+<h3 align="center">I am a motivated and passionate Full-Stack Engineer specializing in Artificial Intelligence and Data Science. My vision is to use technology for societal good by creating innovative, personalized, and secure solutions that make learning easy and interactive. I enjoy solving complex problems with data and machine learning and am always ready to work hard, take ownership, and help build something big from the ground u</h3>
 
-<a href="mailto:chimegyeltshendorji2004@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a>
-<a href="https://www.linkedin.com/in/chimegdorji"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=cgd595&label=Profile%20views&color=0e75b6&style=flat" alt="cgd595" /> </p>
 
----
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=cgd595" alt="cgd595" /></a> </p>
 
-### About Me
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://linkedin.com/in/www.linkedin.com/in/chimegdorji" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="www.linkedin.com/in/chimegdorji" height="30" width="40" /></a>
+</p>
 
-I am a motivated and passionate Full-Stack Engineer specializing in Artificial Intelligence and Data Science. My vision is to use technology for societal good by creating innovative, personalized, and secure solutions that make learning easy and interactive. I enjoy solving complex problems with data and machine learning and am always ready to work hard, take ownership, and help build something big from the ground up.
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://aws.amazon.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/> </a> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.chartjs.org" target="_blank" rel="noreferrer"> <img src="https://www.chartjs.org/media/logo-title.svg" alt="chartjs" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://d3js.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/d3js/d3js-original.svg" alt="d3js" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://cloud.google.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://golang.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" alt="go" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://laravel.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-plain-wordmark.svg" alt="laravel" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://opencv.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/opencv/opencv-icon.svg" alt="opencv" width="40" height="40"/> </a> <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a> <a href="https://www.tensorflow.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="tensorflow" width="40" height="40"/> </a> </p>
 
-🌱 I'm currently deepening my skills in advanced AI agentic design patterns and exploring new ways to apply machine learning to real-world financial data.
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=cgd595&show_icons=true&locale=en&layout=compact" alt="cgd595" /></p>
 
----
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=cgd595&show_icons=true&locale=en" alt="cgd595" /></p>
 
-### 🚀 My Projects
-
-Here are some of the projects I've worked on. I believe in showing my work, so please feel free to explore the live demos and the code.
-
-| Project Name | Description | Technologies Used | Links |
-| :--- | :--- | :--- | :--- |
-| **Zora AI** | As the project lead, I managed the entire development of a personalized AI learning platform that provides students with custom videos, content, and quizzes to create unique learning paths. | Next.js, React, Node.js, Drizzle ORM, PostgreSQL | [Live Demo](https://zora-cyan.vercel.app/) |
-| **Thunku AI PDF Summarizer** | An AI tool for converting PDF documents into summarized text, built over a weekend to explore the Gemini API. It uses abstractive summarization to generate new, concise sentences. | Next.js, Node.js, Gemini API, Vercel | [Live Demo](https://thunku.vercel.app/) |
-| **Anti-Corruption Commission AI Tool** | A secure, conversational AI chatbot to enhance sensitive investigative work for Bhutan's Anti-Corruption Commission using a locally deployed Llama model to ensure data privacy. | Llama (Local), Secure UI | In Development |
-| **Zeebar Resort Booking System** | Developed the resort's commercial website and booking system from scratch, including a secure payment gateway integrated with Bhutan's Royal Monetary Authority (RMA). | Responsive Front-End, RMA Payment Gateway | [Live Site](https://zeebarresort.bt/) |
-
----
-
-### 💻 My Tech Stack
-
-**Languages & Frameworks:**
-* Next.js
-* React
-* Node.js
-* Python
-* JavaScript
-
-**AI & Machine Learning:**
-* LLM Integration
-* LangChain
-* API Development
-
-**Databases & ORMs:**
-* Drizzle ORM
-* PostgreSQL
-* MySQL
-* MongoDB
-
-**Developer Tools:**
-* Git & GitHub
-* Vercel
-* Redux Toolkit
-
----
-
-### 🎓 Education & Certifications
-
-* **Bachelors, Computer Science in AI and Data Science**
-    * *Gyalpozhing College of Information Technology*
-* **Langchain: Develop AI Agents with LangChain & LangGraph**
-* **The Complete Class for Agentic AI Design Patterns**
-* **Practical AI for Finance: Automate, Forecast, and Optimize**
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=cgd595&" alt="cgd595" /></p>
