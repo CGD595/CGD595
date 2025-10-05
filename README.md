@@ -46,21 +46,6 @@ Here are some of the technologies I've been working with:
 
 ---
 
-### 📊 My GitHub Stats
-
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=cgd595&label=Profile%20Views&color=0e75b6&style=flat" alt="cgd595" />
-  <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=cgd595" alt="cgd595" /></a>
-</p>
-
-<p align="center">
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=cgd595&show_icons=true&locale=en" alt="cgd595" />
-  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=cgd595&" alt="cgd595" />
-</p>
-
-<p align="center">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=cgd595&show_icons=true&locale=en&layout=compact" alt="cgd595" />
-</p>
 
 ---
 
