@@ -18,8 +18,8 @@
 
 I'm a Computer Science graduate (AI Development & Data Science) from **Gyalpozhing College of Information Technology, Royal University of Bhutan**, working at the intersection of AI research and full-stack engineering. My focus is **data sovereignty** — building AI that works for Bhutan's low-resource languages (Dzongkha, Sharchop, Bumthap) and can run fully offline, on-premises, with zero cloud dependency.
 
+- 💼 Software Engineer at **[Tech 21](http://21.tech.bt/)**, a systems lab in Thimphu building software, mobile, and hardware solutions for national and enterprise clients
 - 🔭 Co-founder of **[Aplos Lab](https://www.aploslab.com)**, an independent AI research initiative building sovereign language technology
-- 💼 AI Engineer at **NoMindBhutan**, shipping production AI agents for government digital transformation
 - 🏆 **1st Place, AI4Tarayana Challenge 2026** · **BTN 500,000 pre-seed grant** (Bhutan Startup Launchpad) · **Best Project of the Year 2026**
 - 🌱 Currently deepening advanced **agentic AI design patterns** and applying ML to real-world financial data
 - 📫 Reach me at **chimegyeltshendorji2004@gmail.com**
@@ -56,6 +56,8 @@ More on **[GitHub ↗](https://github.com/CGD595)**
 
 ### 💼 Experience
 
+**Software Engineer** · [Tech 21](http://21.tech.bt/) *(current)* — building software, mobile, and web systems for national and enterprise clients out of Thimphu HQ
+
 **AI Engineer** · NoMindBhutan — building production AI agents & custom RAG architectures for government/enterprise clients
 
 **Co-Founder & AI Researcher** · Aplos Lab — NLP/speech models for Dzongkha & Sharchop; led the Bhutanese Dialect Corpus project
@@ -70,19 +72,61 @@ More on **[GitHub ↗](https://github.com/CGD595)**
 
 ### 💻 Skills & Tools
 
-**Languages:** ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=openjdk&logoColor=white)
+**Languages**
+<p align="left">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/>
+</p>
 
-**Frontend:** ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Next.js](https://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white) ![Tailwind](https://img.shields.io/badge/-Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white) ![Framer](https://img.shields.io/badge/-Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white)
+**Frontend**
+<p align="left">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original-wordmark.svg" alt="nextjs" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg" alt="tailwind" width="40" height="40"/>
+  <img src="https://www.vectorlogo.zone/logos/framer/framer-icon.svg" alt="framer motion" width="40" height="40"/>
+</p>
 
-**Backend:** ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![FastAPI](https://img.shields.io/badge/-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) ![Prisma](https://img.shields.io/badge/-Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)
+**Backend**
+<p align="left">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="fastapi" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/prisma/prisma-original.svg" alt="prisma" width="40" height="40"/>
+</p>
 
-**AI / NLP:** ![LangChain](https://img.shields.io/badge/-LangChain-1C3C3C?style=flat-square) ![LangGraph](https://img.shields.io/badge/-LangGraph-1C3C3C?style=flat-square) Llama 3 · GPT · Gemini API · RAG Systems · Speech Tech · Neural MT · QLoRA
+**AI / NLP**
+<p align="left">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original-wordmark.svg" alt="tensorflow" width="40" height="40"/>
+  <img src="https://www.vectorlogo.zone/logos/langchain/langchain-icon.svg" alt="langchain" width="40" height="40"/>
+  <img src="https://ollama.com/public/ollama.png" alt="llama" width="40" height="40"/>
+  <img src="https://www.vectorlogo.zone/logos/google_bard/google_bard-icon.svg" alt="gemini" width="40" height="40"/>
+</p>
 
-**Data & ML:** ![TensorFlow](https://img.shields.io/badge/-TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white) ![PyTorch](https://img.shields.io/badge/-PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white) ![OpenCV](https://img.shields.io/badge/-OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white) ![Spark](https://img.shields.io/badge/-Apache_Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white) ChromaDB
+LangGraph · RAG Systems · Speech Tech · Neural MT · QLoRA · ChromaDB
 
-**Databases:** ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white) ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+**Data & ML**
+<p align="left">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original-wordmark.svg" alt="pytorch" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/opencv/opencv-original-wordmark.svg" alt="opencv" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apache/apache-original-wordmark.svg" alt="apache spark" width="40" height="40"/>
+</p>
 
-**Tools & Infra:** ![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white) ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![Vercel](https://img.shields.io/badge/-Vercel-000000?style=flat-square&logo=vercel&logoColor=white) ![AWS](https://img.shields.io/badge/-AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white) ![Figma](https://img.shields.io/badge/-Figma-F24E1E?style=flat-square&logo=figma&logoColor=white)
+**Databases**
+<p align="left">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/>
+</p>
+
+**Tools & Infra**
+<p align="left">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original-wordmark.svg" alt="git" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original-wordmark.svg" alt="vercel" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" alt="figma" width="40" height="40"/>
+</p>
 
 **Spoken:** Dzongkha (Native) · Sharchop (Native) · English (Professional)
 
@@ -105,13 +149,15 @@ Gyalpozhing College of Information Technology, Royal University of Bhutan (2022�
 ### 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=CGD595&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" height="165"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=CGD595&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="165"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=CGD595&show_icons=true&theme=tokyonight&hide_border=true&cache_seconds=86400" alt="GitHub Stats" height="165"/>
+  <img src="https://streak-stats.demolab.com/?user=CGD595&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="165"/>
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CGD595&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" height="165"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CGD595&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=86400" alt="Top Languages" height="165"/>
 </p>
+
+> If these cards ever show a blank/error image again, it's almost always the shared `github-readme-stats.vercel.app` instance hitting its GitHub API rate limit (a known issue, not specific to your profile). The permanent fix is to [fork the repo and deploy your own instance to Vercel](https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own) with your own token, then swap the domain above for yours.
 
 ---
 
