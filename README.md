@@ -1,54 +1,124 @@
-# Chime Gyeltshen Dorji | AI-Focused Full-Stack Engineer
+<h1 align="center">Kuzu Zangpo 🙏 I'm Chime Gyeltshen Dorji</h1>
+<h3 align="center">AI-Focused Full-Stack Engineer · Bhutan 🇧🇹</h3>
 
-<p align="left">
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=2AA9E0&center=true&vCenter=true&width=600&lines=Building+sovereign+AI+for+low-resource+languages;LLM+Agents+%C2%B7+RAG+Systems+%C2%B7+Full-Stack+Platforms;Co-Founder+%40Aplos+Lab;1st+Place+%40AI4Tarayana+2026" alt="Typing SVG" />
+</p>
+
+<p align="center">
   <a href="mailto:chimegyeltshendorji2004@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a>
   <a href="https://www.linkedin.com/in/chimegdorji"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+  <a href="https://www.chimegd.xyz"><img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio"/></a>
+  <a href="https://www.chimegd.xyz/cgd.pdf"><img src="https://img.shields.io/badge/Resume-4285F4?style=for-the-badge&logo=googledocs&logoColor=white" alt="Resume"/></a>
 </p>
-
-I am a motivated and passionate Full-Stack Engineer specializing in Artificial Intelligence and Data Science. My vision is to use technology for societal good by creating innovative, personalized, and secure solutions that make learning easy and interactive. I enjoy solving complex problems with data and machine learning and am always ready to work hard, take ownership, and help build something big from the ground up.
-
-🌱 I'm currently deepening my skills in advanced AI agentic design patterns and exploring new ways to apply machine learning to real-world financial data.
 
 ---
 
-### 🚀 My Projects
+### 🧭 About Me
 
-Here are some of the projects I've worked on. I believe in showing my work, so please feel free to explore the live demos and the code.
+I'm a Computer Science graduate (AI Development & Data Science) from **Gyalpozhing College of Information Technology, Royal University of Bhutan**, working at the intersection of AI research and full-stack engineering. My focus is **data sovereignty** — building AI that works for Bhutan's low-resource languages (Dzongkha, Sharchop, Bumthap) and can run fully offline, on-premises, with zero cloud dependency.
 
-| Project Name | Description | Technologies Used | Links |
+- 🔭 Co-founder of **[Aplos Lab](https://www.aploslab.com)**, an independent AI research initiative building sovereign language technology
+- 💼 AI Engineer at **NoMindBhutan**, shipping production AI agents for government digital transformation
+- 🏆 **1st Place, AI4Tarayana Challenge 2026** · **BTN 500,000 pre-seed grant** (Bhutan Startup Launchpad) · **Best Project of the Year 2026**
+- 🌱 Currently deepening advanced **agentic AI design patterns** and applying ML to real-world financial data
+- 📫 Reach me at **chimegyeltshendorji2004@gmail.com**
+
+---
+
+### 🏆 Awards & Recognition
+
+| Award | Detail |
+| :--- | :--- |
+| 🥇 **Best Project of the Year 2026** — CIT Gyalpozhing | ACC Document Intelligence Platform — agentic RAG system for investigative work |
+| 🥇 **1st Place — AI4Tarayana Challenge 2026** | Multilingual translation & TTS platform for Bhutanese dialects (NU 100,000 prize) |
+| 💰 **BTN 500,000 Pre-Seed** — Bhutan Startup Launchpad | Top 6 startup team nationally for Aplos Lab |
+| 🎓 **Pelsung Cohort 2 — Pelsup** | GMC's Guardians of Prosperity initiative, built a smart parking system |
+
+---
+
+### 🚀 Selected Projects
+
+| Project | Description | Tech | Link |
 | :--- | :--- | :--- | :--- |
-| **Zora AI** | As the project lead, I managed the entire development of a personalized AI learning platform that provides students with custom videos, content, and quizzes to create unique learning paths. | Next.js, React, Node.js, Drizzle ORM, PostgreSQL | [Live Demo](https://zora-cyan.vercel.app/) |
-| **Thunku AI PDF Summarizer** | An AI tool for converting PDF documents into summarized text, built over a weekend to explore the Gemini API. It uses abstractive summarization to generate new, concise sentences. | Next.js, Node.js, Gemini API, Vercel | [Live Demo](https://thunku.vercel.app/) |
-| **Anti-Corruption Commission AI Tool** | A secure, conversational AI chatbot to enhance sensitive investigative work for Bhutan's Anti-Corruption Commission using a locally deployed Llama model to ensure data privacy. | Llama (Local), Secure UI | In Development |
-| **Zeebar Resort Booking System** | Developed the resort's commercial website and booking system from scratch, including a secure payment gateway integrated with Bhutan's Royal Monetary Authority (RMA). | Responsive Front-End, RMA Payment Gateway | [Live Site](https://zeebarresort.bt/) |
+| **Aplos Lab** | Sovereign AI research startup building speech, translation & NLP systems for Dzongkha, Sharchop, and Bumthap | NLP, TTS, Neural MT, Python | [Website ↗](https://www.aploslab.com) |
+| **ACC Document Intelligence** 🏆 | Agentic RAG platform reading handwritten investigative documents via 3-layer OCR, LangGraph multi-tool agent, Text2SQL CDR cross-referencing, and VLM answer highlighting — fully air-gapped, zero cloud | Llama 3, LangGraph, ChromaDB, FastAPI | Confidential |
+| **Zora AI** | Personalized AI learning platform generating custom videos, content, and quizzes per student | Next.js, React, Node.js, Drizzle ORM, PostgreSQL | [Live Demo ↗](https://zora-cyan.vercel.app) |
+| **Dzongkha OCR Dataset** | Crowdsourced handwritten Dzongkha dataset with a full pipeline — intake, labelling, dedup, QA — and a trained OCR model | Python, Computer Vision | In Development |
+| **GMC Smart Parking** | Real-time parking discovery, reservation & navigation with camera-based detection, built for Gelephu Mindfulness City | Computer Vision, Full-Stack | Pelsung Cohort 2 |
+| **Zeebar Resort** | Full-stack hotel booking system with the RMA payment gateway integrated | Next.js, RMA Payment Gateway | [Live Site ↗](https://zeebarresort.bt) |
+| **Druk Happy Cleaning** | Full-stack service site for a Perth-based cleaning company — booking flow, gallery, reviews | Next.js, SEO | [Live Site ↗](https://www.drukhappycleaning.com) |
+| **Thunku** | AI PDF summarizer using abstractive summarization — built in a single weekend | Next.js, Gemini API | [Live Demo ↗](https://thunku.vercel.app) |
+
+More on **[GitHub ↗](https://github.com/CGD595)**
 
 ---
 
-### 💻 Languages and Tools
+### 💼 Experience
 
-Here are some of the technologies I've been working with:
+**AI Engineer** · NoMindBhutan — building production AI agents & custom RAG architectures for government/enterprise clients
 
-<p align="left"> 
-  <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a>
-  <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a>
-  <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a>
-  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a>
-  <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a>
-  <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a>
-  <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a>
-  <a href="https://aws.amazon.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/> </a>
-  <a href="https://cloud.google.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="40" height="40"/> </a>
-  <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a>
-  <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a>
-  <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a>
-  <a href="https://www.tensorflow.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="tensorflow" width="40" height="40"/> </a>
-</p>
+**Co-Founder & AI Researcher** · Aplos Lab — NLP/speech models for Dzongkha & Sharchop; led the Bhutanese Dialect Corpus project
+
+**Sole Developer** · Anti-Corruption Commission of Bhutan — air-gapped RAG system (Llama 3 + ChromaDB), ~40% retrieval efficiency gain
+
+**Freelance Web Developer** · Druk Happy Cleaning (Perth, AU, remote) — full-stack booking site across 9 service categories
+
+**Full-Stack Developer** · Zeebar Resort — booking system with RMA payment gateway integration
+
+---
+
+### 💻 Skills & Tools
+
+**Languages:** ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=openjdk&logoColor=white)
+
+**Frontend:** ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Next.js](https://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white) ![Tailwind](https://img.shields.io/badge/-Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white) ![Framer](https://img.shields.io/badge/-Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white)
+
+**Backend:** ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![FastAPI](https://img.shields.io/badge/-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) ![Prisma](https://img.shields.io/badge/-Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)
+
+**AI / NLP:** ![LangChain](https://img.shields.io/badge/-LangChain-1C3C3C?style=flat-square) ![LangGraph](https://img.shields.io/badge/-LangGraph-1C3C3C?style=flat-square) Llama 3 · GPT · Gemini API · RAG Systems · Speech Tech · Neural MT · QLoRA
+
+**Data & ML:** ![TensorFlow](https://img.shields.io/badge/-TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white) ![PyTorch](https://img.shields.io/badge/-PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white) ![OpenCV](https://img.shields.io/badge/-OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white) ![Spark](https://img.shields.io/badge/-Apache_Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white) ChromaDB
+
+**Databases:** ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white) ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+
+**Tools & Infra:** ![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white) ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![Vercel](https://img.shields.io/badge/-Vercel-000000?style=flat-square&logo=vercel&logoColor=white) ![AWS](https://img.shields.io/badge/-AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white) ![Figma](https://img.shields.io/badge/-Figma-F24E1E?style=flat-square&logo=figma&logoColor=white)
+
+**Spoken:** Dzongkha (Native) · Sharchop (Native) · English (Professional)
 
 ---
 
 ### 🎓 Education & Certifications
 
-* **Bachelors, Computer Science in AI and Data Science** 
-    * *Gyalpozhing College of Information Technology*
-* **Langchain: Develop AI Agents with LangChain & LangGraph**
-* **The Complete Class for Agentic AI Design Patterns**
+**Bachelor of Computer Science — AI Development & Data Science**
+Gyalpozhing College of Information Technology, Royal University of Bhutan (2022–2026)
+
+- ✅ AI Engineer Core Track: LLM Engineering, RAG, QLoRA & Agents — Udemy, 2026
+- ✅ AI Engineer Agentic Track: The Complete Agent & MCP Course — Udemy, 2026
+- ✅ Ultimate RAG Bootcamp Using LangChain, LangGraph & More — Udemy, 2026
+- ✅ Google UX Design Professional Certificate — Coursera/Google, 2026
+- ✅ LangChain & LangGraph: Develop AI Agents — Udemy, 2025
+- ✅ Practical AI for Finance: Automate, Forecast & Optimize — Udemy, 2025
+
+---
+
+### 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=CGD595&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" height="165"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=CGD595&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="165"/>
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CGD595&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" height="165"/>
+</p>
+
+---
+
+<p align="center">
+  <em>Let's build something. 🇧🇹</em><br/>
+  <a href="mailto:chimegyeltshendorji2004@gmail.com">chimegyeltshendorji2004@gmail.com</a> ·
+  <a href="https://github.com/CGD595">GitHub</a> ·
+  <a href="https://www.linkedin.com/in/chimegdorji">LinkedIn</a> ·
+  <a href="https://www.chimegd.xyz">chimegd.xyz</a>
+</p>
