@@ -98,9 +98,8 @@ More on **[GitHub ↗](https://github.com/CGD595)**
 **AI / NLP**
 <p align="left">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original-wordmark.svg" alt="tensorflow" width="40" height="40"/>
-  <img src="https://www.vectorlogo.zone/logos/langchain/langchain-icon.svg" alt="langchain" width="40" height="40"/>
   <img src="https://ollama.com/public/ollama.png" alt="llama" width="40" height="40"/>
-  <img src="https://www.vectorlogo.zone/logos/google_bard/google_bard-icon.svg" alt="gemini" width="40" height="40"/>
+
 </p>
 
 LangGraph · RAG Systems · Speech Tech · Neural MT · QLoRA · ChromaDB
@@ -149,7 +148,6 @@ Gyalpozhing College of Information Technology, Royal University of Bhutan (2022�
 ### 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=CGD595&show_icons=true&theme=tokyonight&hide_border=true&cache_seconds=86400" alt="GitHub Stats" height="165"/>
   <img src="https://streak-stats.demolab.com/?user=CGD595&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="165"/>
 </p>
 
