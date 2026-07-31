@@ -153,11 +153,7 @@ Gyalpozhing College of Information Technology, Royal University of Bhutan (2022â
   <img src="https://streak-stats.demolab.com/?user=CGD595&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="165"/>
 </p>
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CGD595&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=86400" alt="Top Languages" height="165"/>
-</p>
 
-> If these cards ever show a blank/error image again, it's almost always the shared `github-readme-stats.vercel.app` instance hitting its GitHub API rate limit (a known issue, not specific to your profile). The permanent fix is to [fork the repo and deploy your own instance to Vercel](https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own) with your own token, then swap the domain above for yours.
 
 ---
 
