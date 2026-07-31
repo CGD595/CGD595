@@ -18,7 +18,7 @@
 
 I'm a Computer Science graduate (AI Development & Data Science) from **Gyalpozhing College of Information Technology, Royal University of Bhutan**, working at the intersection of AI research and full-stack engineering.
 
-- 💼 Software Engineer at **[Tech 21](http://21.tech.bt/)**, a systems lab in Bhutan building software, mobile, and hardware solutions for national and enterprise clients
+- 💼 Software Engineer at **[21Tech](http://21.tech.bt/)**, a systems lab in Bhutan building software, mobile, and hardware solutions for national and enterprise clients
 - 🔭 Co-founder of **[Aplos Lab](https://www.aploslab.com)**, an independent AI research initiative building sovereign language technology
 - 🏆 **1st Place, AI4Tarayana Challenge 2026** · **BTN 500,000 pre-seed grant** (Bhutan Startup Launchpad) · **Best Project of the Year 2026**
 - 📫 Reach me at **chimegyeltshendorji2004@gmail.com**
