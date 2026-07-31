@@ -2,7 +2,7 @@
 <h3 align="center">AI-Focused Full-Stack Engineer · Bhutan 🇧🇹</h3>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=2AA9E0&center=true&vCenter=true&width=600&LLM+Agents+%C2%B7+RAG+Systems+%C2%B7+Full-Stack+Platforms;Co-Founder+%40Aplos+Lab;1st+Place+%40AI4Tarayana+2026" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=2AA9E0&center=true&vCenter=true&width=600&LLM+Agents+%C2%B7+RAG+Systems+%C2%B7+Full-Stack+Platforms;Co-Founder+%40Aplos+Lab;1st+Place+%40AI4Tarayana+2026" />
 </p>
 
 <p align="center">
