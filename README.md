@@ -16,7 +16,7 @@
 
 ### 🧭 About Me
 
-I'm a Computer Science graduate (AI Development & Data Science) from **Gyalpozhing College of Information Technology, Royal University of Bhutan**, working at the intersection of AI research and full-stack engineering.
+I'm a Computer Science graduate (AI Development & Data Science) from **Gyalpozhing College of Information Technology, Royal University of Bhutan**, working at the intersection of AI research and Software engineering.
 
 - 💼 Software Engineer at **[21Tech](http://21.tech.bt/)**, a systems lab in Bhutan building software, mobile, and hardware solutions for national and enterprise clients
 - 🔭 Co-founder of **[Aplos Lab](https://www.aploslab.com)**, an independent AI research initiative building sovereign language technology
