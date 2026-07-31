@@ -1,8 +1,8 @@
-<h1 align="center">Kuzu Zangpo 🙏 I'm Chime Gyeltshen Dorji</h1>
+<h1 align="center">Kuzu Zangpo I'm Chime Gyeltshen Dorji</h1>
 <h3 align="center">AI-Focused Full-Stack Engineer · Bhutan 🇧🇹</h3>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=2AA9E0&center=true&vCenter=true&width=600&LLM+Agents+%C2%B7+RAG+Systems+%C2%B7+Full-Stack+Platforms;Co-Founder+%40Aplos+Lab;1st+Place+%40AI4Tarayana+2026" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=2AA9E0&center=true&vCenter=true&width=600&lines=LLM+Agents+%C2%B7+RAG+Systems+%C2%B7+Full-Stack+Platforms;Co-Founder+%40Aplos+Lab;1st+Place+%40AI4Tarayana+2026" />
 </p>
 
 <p align="center">
@@ -16,12 +16,11 @@
 
 ### 🧭 About Me
 
-I'm a Computer Science graduate (AI Development & Data Science) from **Gyalpozhing College of Information Technology, Royal University of Bhutan**, working at the intersection of AI research and full-stack engineering. My focus is **data sovereignty** — building AI that works for Bhutan's low-resource languages (Dzongkha, Sharchop, Bumthap) and can run fully offline, on-premises, with zero cloud dependency.
+I'm a Computer Science graduate (AI Development & Data Science) from **Gyalpozhing College of Information Technology, Royal University of Bhutan**, working at the intersection of AI research and full-stack engineering.
 
-- 💼 Software Engineer at **[Tech 21](http://21.tech.bt/)**, a systems lab in Thimphu building software, mobile, and hardware solutions for national and enterprise clients
+- 💼 Software Engineer at **[Tech 21](http://21.tech.bt/)**, a systems lab in Bhutan building software, mobile, and hardware solutions for national and enterprise clients
 - 🔭 Co-founder of **[Aplos Lab](https://www.aploslab.com)**, an independent AI research initiative building sovereign language technology
 - 🏆 **1st Place, AI4Tarayana Challenge 2026** · **BTN 500,000 pre-seed grant** (Bhutan Startup Launchpad) · **Best Project of the Year 2026**
-- 🌱 Currently deepening advanced **agentic AI design patterns** and applying ML to real-world financial data
 - 📫 Reach me at **chimegyeltshendorji2004@gmail.com**
 
 ---
@@ -56,7 +55,7 @@ More on **[GitHub ↗](https://github.com/CGD595)**
 
 ### 💼 Experience
 
-**Software Engineer** · [Tech 21](http://21.tech.bt/) *(current)* — building software, mobile, and web systems for national and enterprise clients out of Thimphu HQ
+**Software Engineer** · [21Tech](http://21.tech.bt/) *(current)* — building software, mobile, and web systems for national and enterprise clients
 
 **AI Engineer** · NoMindBhutan — building production AI agents & custom RAG architectures for government/enterprise clients
 
