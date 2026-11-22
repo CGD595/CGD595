@@ -478,7 +478,6 @@ def contact(theme):
 
 if __name__ == "__main__":
     for th in THEMES:
-        hero(th)
         heading(th, "cadence")
     total = sum(s for _, _, s in built)
     print(f"built {len(built)} files, {total/1024:.0f}KB total")
