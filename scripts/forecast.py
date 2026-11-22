@@ -199,6 +199,134 @@ def render(theme, info):
     d.save("forecast.svg", theme)
 
 
+def streak_now(counts, T):
+    n = 0
+    for i in range(T - 1, -1, -1):
+        if not counts[i]:
+            break
+        n += 1
+    return n + (1 if counts[T] else 0)
+
+
+def render_weather(theme, info, dates, counts):
+    """Past year (daily) -> NOW -> next 7 days, in one timeline."""
+    W, H = 1200, 640
+    d = Doc(W, H, theme, f"Shipping forecast: {round(info['p']*100)}% chance of shipping today; "
+                         f"{sum(counts):,} contributions in the last year")
+    t = d.t
+    T = len(counts) - 1
+    d.css = f"""
+.spin{{animation:spin 24s linear infinite}}@keyframes spin{{to{{transform:rotate(360deg)}}}}
+.drop{{animation:drop 1.1s ease-in infinite}}@keyframes drop{{0%{{transform:translateY(-6px);opacity:0}}30%{{opacity:1}}100%{{transform:translateY(10px);opacity:0}}}}
+.in{{animation:in .7s {EASE} both}}@keyframes in{{from{{opacity:0;transform:translateY(10px)}}}}
+.b{{transform-box:fill-box;transform-origin:50% 100%;animation:g .6s {EASE} both}}@keyframes g{{from{{transform:scaleY(0)}}}}
+.now{{animation:nw 2.4s ease-in-out infinite}}@keyframes nw{{0%,100%{{opacity:.45}}50%{{opacity:1}}}}
+.fz{{animation:in .8s {EASE} both;animation-delay:1.6s}}
+"""
+    d.defs.append(
+        f'<linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{t["primary"]}"/>'
+        f'<stop offset="1" stop-color="{t["primary"]}" stop-opacity=".25"/></linearGradient>'
+        f'<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
+        f'<rect width="6" height="6" fill="{t["primary"]}" fill-opacity=".05"/><path d="M0 0V6" stroke="{t["primary"]}" stroke-opacity=".12" stroke-width="2"/></pattern>'
+    )
+    d.add(f'<rect x=".5" y=".5" width="{W-1}" height="{H-1}" rx="20" fill="{t["card"]}" stroke="{t["border"]}"/>')
+    x = 44
+    d.add(d.tspan_text(x, 60, [("SHIPPING WEATHER", t["primary"], None),
+                              (f"  ·  ISSUED {info['issued']}", t["muted"], None)], "m", 12.5, 0.16))
+
+    # ---- headline (today)
+    kind, words = condition(info["p"])
+    d.add(f'<g class="in">{icon(kind, x + 54, 140, 1.05, t["primary"])}</g>')
+    pct = f"{round(info['p']*100)}%"
+    d.add('<g class="in" style="animation-delay:.1s">' + d.text(x + 128, 168, pct, "h", 84, t["fg"], -0.05) + "</g>")
+    pw = measure(pct, "h", 84, -0.05)
+    d.add('<g class="in" style="animation-delay:.2s">'
+          + d.text(x + 128 + pw + 16, 132, "chance of shipping", "h", 23, t["fg"], -0.02)
+          + d.text(x + 128 + pw + 16, 162, "today.", "h", 23, t["fg"], -0.02) + "</g>")
+    d.add(d.text(x + 130, 206, f"{words} · expected {info['volume']} contributions if I do", "b", 16, t["muted"]))
+
+    # ---- right column: yesterday + track record
+    rx = 800
+    y = info["yesterday"]
+    hit = (y["p"] >= 0.5) == y["shipped"]
+    d.add(d.text(rx, 104, "YESTERDAY", "m", 11.5, t["muted"], 0.16))
+    d.add(d.text(rx, 138, f"{round(y['p']*100)}%", "h", 30, t["fg"], -0.03))
+    yw = measure(f"{round(y['p']*100)}%", "h", 30, -0.03)
+    d.add(d.text(rx + yw + 12, 136, f"→ {'shipped ' + str(y['count']) if y['shipped'] else 'rested'}", "b", 16, t["muted"]))
+    d.add(d.text(rx, 160, "✓ CALLED IT" if hit else "✗ MISSED", "m", 11.5, t["primary"] if hit else t["muted"], 0.16))
+    rx2 = 990
+    d.add(d.text(rx2, 104, f"LAST {GRADE_DAYS} DAYS", "m", 11.5, t["muted"], 0.16))
+    d.add(d.text(rx2, 138, f"{round(info['accuracy']*100)}%", "h", 30, t["fg"], -0.03))
+    aw = measure(f"{round(info['accuracy']*100)}%", "h", 30, -0.03)
+    d.add(d.text(rx2 + aw + 10, 136, "correct", "b", 16, t["muted"]))
+    d.add(d.text(rx2, 160, f"BASELINE {info['baseline']:.0%} · BRIER {info['brier']:.2f}", "m", 11.5, t["muted"], 0.14))
+
+    # ---- timeline
+    top, base = 262, 470
+    x0, x1 = x, W - x
+    fz = 196                      # forecast zone width
+    now_x = x1 - fz
+    n = T                         # completed days drawn (today lives in the forecast zone)
+    step = (now_x - 10 - x0) / n
+    bw = max(1.2, step * 0.72)
+    mx = max(counts[:T]) or 1
+    hh = lambda v: (base - top) * (v / mx) ** 0.5
+    d.add(f'<path d="M{x0} {base+.5}H{x1}" stroke="{t["border"]}"/>')
+    graded = {len(counts) - 1 - 1 - k for k in range(GRADE_DAYS)}
+    rec_by_i = {T - GRADE_DAYS + k: g for k, g in enumerate(info["record"])}
+    for i in range(n):
+        v = counts[i]
+        bx = x0 + i * step
+        if v:
+            h = max(2, hh(v))
+            d.add(f'<rect class="b" style="animation-delay:{i*0.003:.3f}s" x="{bx:.2f}" y="{base-h:.1f}" width="{bw:.2f}" height="{h:.1f}" fill="url(#g)"/>')
+        g = rec_by_i.get(i)
+        if g and ((g["p"] >= 0.5) != g["shipped"]):
+            d.add(f'<circle cx="{bx+bw/2:.1f}" cy="{base+12}" r="2.2" fill="{t["muted"]}"/>')
+    # graded bracket
+    gx = x0 + (T - GRADE_DAYS) * step
+    d.add(f'<path d="M{gx:.1f} {base+22}V{base+26}H{now_x-10:.1f}V{base+22}" fill="none" stroke="{t["border"]}"/>')
+    d.add(d.text(gx, base + 42, f"GRADED · DOTS = MISSED CALLS", "m", 10.5, t["faint"], 0.14))
+    # month ticks
+    last = None
+    for i in range(n):
+        m = dates[i].strftime("%b").upper()
+        if m != last and 3 < i < n - 8 and dates[i].day <= 7:
+            d.add(d.text(x0 + i * step, top - 8, m, "m", 10.5, t["faint"], 0.14))
+        last = m
+
+    # forecast zone
+    d.add(f'<g class="fz"><rect x="{now_x:.1f}" y="{top-24}" width="{fz}" height="{base-top+24}" rx="8" fill="url(#hatch)"/>')
+    d.add(f'<path class="now" d="M{now_x:.1f} {top-30}V{base+4}" stroke="{t["primary"]}" stroke-width="1.5"/>')
+    d.add(d.text(now_x + 8, top - 30, "NOW", "m", 10.5, t["primary"], 0.16))
+    d.add(d.text(x1 - 6, top - 30, "NEXT 7 DAYS", "m", 10.5, t["muted"], 0.16, anchor="end"))
+    fstep = (fz - 16) / 7
+    for k, (day, p) in enumerate(info["outlook"]):
+        fx = now_x + 10 + k * fstep
+        ev = info["expect"][k]
+        h = max(4, hh(ev)) if ev else 4
+        fw = fstep * 0.66
+        d.add(f'<rect x="{fx:.1f}" y="{base-h:.1f}" width="{fw:.1f}" height="{h:.1f}" rx="2" fill="{t["primary"]}" '
+              f'fill-opacity="{0.1 + 0.25*p:.2f}" stroke="{t["primary"]}" stroke-dasharray="3 3" stroke-opacity=".8"/>')
+        d.add(d.text(fx + fw / 2, base - h - 8, f"{round(p*100)}", "m", 11, t["fg"] if k == 0 else t["muted"], anchor="middle"))
+        d.add(d.text(fx + fw / 2, base + 16, ("T" if k == 0 else day.strftime("%a")[0]), "m", 10.5,
+                     t["primary"] if k == 0 else t["faint"], 0.1, anchor="middle"))
+    d.add("</g>")
+
+    # ---- footer stats
+    sy = H - 44
+    stats = [(f"{sum(counts):,}", "contributions · 12 mo"), (str(sum(1 for c in counts if c)), "active days"),
+             (str(streak_now(counts, T)), "day streak"), (str(max(counts)), "best day")]
+    sx = x
+    for v, label in stats:
+        d.add(d.text(sx, sy, v, "h", 24, t["fg"], -0.03))
+        vw = measure(v, "h", 24, -0.03)
+        d.add(d.text(sx + vw + 8, sy - 1, label.upper(), "m", 11, t["muted"], 0.14))
+        sx += vw + 8 + measure(label.upper(), "m", 11, 0.14) + 40
+    d.add(d.text(x1, sy - 1, "FORECAST % ABOVE BARS · DASHED = EXPECTED", "m", 10.5, t["faint"], 0.14, anchor="end"))
+    d.save("weather.svg", theme)
+
+
 # ---------------------------------------------------------------- main
 def main():
     dates, counts = fetch()
@@ -239,12 +367,15 @@ def main():
     same = sorted(c for i, c in enumerate(counts[:T]) if c and (T - i) % 7 == 0 and T - i <= 84) or sorted(c for c in counts[:T] if c)
     q = lambda f: same[min(len(same) - 1, int(f * (len(same) - 1) + 0.5))]
     volume = f"{q(0.25)}–{q(0.75)}" if same else "a few"
+    def expect(k):
+        vals = sorted(c for i, c in enumerate(counts[:T]) if c and (T + k - i) % 7 == 0 and T + k - i <= 84)
+        return vals[len(vals) // 2] if vals else 0
     y = record[-1]
     info = dict(p=p_today, issued=datetime.now(BTT).strftime("%d.%m.%Y, %H:%M BHUTAN TIME"), volume=volume,
                 yesterday=y, outlook=outlook, record=record, accuracy=acc, brier=brier, baseline=baseline,
-                live_days=sum(g["live"] for g in record))
+                live_days=sum(g["live"] for g in record), expect=[expect(k) for k in range(7)])
     for th in THEMES:
-        render(th, info)
+        render_weather(th, info, dates, counts)
     print(f"weights {w} · today {p_today:.0%} · accuracy {acc:.0%} (baseline {baseline:.0%}) · brier {brier:.3f}")
 
 

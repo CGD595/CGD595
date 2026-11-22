@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install fonttools==4.55.3
-      - name: Redraw cadence from contributions
+      - name: Forecast and redraw from contributions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -28,6 +28,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/forecast-log.json assets/dark/forecast.svg assets/light/forecast.svg assets/dark/cadence.svg assets/light/cadence.svg assets/dark/knot.svg assets/light/knot.svg assets/dark/gnh.svg assets/light/gnh.svg
+          git add data/forecast-log.json assets/dark/weather.svg assets/light/weather.svg assets/dark/knot.svg assets/light/knot.svg assets/dark/gnh.svg assets/light/gnh.svg
           git diff --cached --quiet || git commit -m "chore: daily forecast and redraws"
           git push

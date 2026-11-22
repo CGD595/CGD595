@@ -247,6 +247,5 @@ def build_knot(theme, weeks):
 if __name__ == "__main__":
     total, weeks = fetch()
     for th in THEMES:
-        build(th, total, weeks)
         build_knot(th, weeks)
-    print(f"cadence: {total} contributions")
+    print(f"knot: {total} contributions")
