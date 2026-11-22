@@ -89,7 +89,7 @@ SECTIONS = {
     "experience": ("03", "Experience", "Where I've worked.", ""),
     "awards": ("04", "Awards & recognition", "Built to win.", ""),
     "stack": ("05", "Skills & tools", "What I reach for.", ""),
-    "cadence": ("06", "Activity", "Shipping cadence.", "Redrawn daily"),
+    "cadence": ("01", "Activity", "Shipping cadence.", "Redrawn daily"),
 }
 
 W = 1200
@@ -479,22 +479,6 @@ def contact(theme):
 if __name__ == "__main__":
     for th in THEMES:
         hero(th)
-        marquee(th)
-        pill(th, "contact", "Contact ↗", True)
-        pill(th, "cv", "Download CV ↓", False)
-        pill(th, "linkedin", "LinkedIn ↗", False)
-        pill(th, "site", "chimegd.xyz ↗", False)
-        for k in SECTIONS:
-            heading(th, k)
-        stats(th)
-        featured(th)
-        for i, p in enumerate(PROJECTS):
-            card(th, p, i)
-        private(th)
-        experience(th)
-        awards(th)
-        stack(th)
-        contact(th)
+        heading(th, "cadence")
     total = sum(s for _, _, s in built)
-    big = max(built, key=lambda b: b[2])
-    print(f"built {len(built)} files, {total/1024:.0f}KB total, largest {big[1]} {big[2]/1024:.0f}KB")
+    print(f"built {len(built)} files, {total/1024:.0f}KB total")
