@@ -20,11 +20,13 @@ jobs:
       - name: Redraw cadence from contributions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/cadence.py "$GITHUB_REPOSITORY_OWNER"
+        run: |
+          python scripts/cadence.py "$GITHUB_REPOSITORY_OWNER"
+          python scripts/gnh.py "$GITHUB_REPOSITORY_OWNER"
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/dark/cadence.svg assets/light/cadence.svg assets/dark/knot.svg assets/light/knot.svg
-          git diff --cached --quiet || git commit -m "chore: redraw shipping cadence"
+          git add assets/dark/cadence.svg assets/light/cadence.svg assets/dark/knot.svg assets/light/knot.svg assets/dark/gnh.svg assets/light/gnh.svg
+          git diff --cached --quiet || git commit -m "chore: redraw cadence, knot and happiness"
           git push
