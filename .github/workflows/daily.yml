@@ -2,14 +2,14 @@ name: Daily profile
 
 on:
   schedule:
-    - cron: "17 0 * * *" # daily, 06:17 Bhutan time
+    - cron: "17 0 * * *" # daily, 06:17 Bhutan time (forecasts only count if issued before 09:00)
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  cadence:
+  forecast:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,14 +20,11 @@ jobs:
       - name: Forecast and redraw from contributions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python scripts/forecast.py "$GITHUB_REPOSITORY_OWNER"
-          python scripts/cadence.py "$GITHUB_REPOSITORY_OWNER"
-          python scripts/gnh.py "$GITHUB_REPOSITORY_OWNER"
+        run: python scripts/forecast.py "$GITHUB_REPOSITORY_OWNER"
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/forecast-log.json assets/dark/weather.svg assets/light/weather.svg assets/dark/knot.svg assets/light/knot.svg assets/dark/gnh.svg assets/light/gnh.svg
-          git diff --cached --quiet || git commit -m "chore: daily forecast and redraws"
+          git add data/forecast-log.json assets/dark/weather.svg assets/light/weather.svg
+          git diff --cached --quiet || git commit -m "chore: daily shipping forecast"
           git push
