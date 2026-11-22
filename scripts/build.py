@@ -89,6 +89,7 @@ SECTIONS = {
     "experience": ("03", "Experience", "Where I've worked.", ""),
     "awards": ("04", "Awards & recognition", "Built to win.", ""),
     "stack": ("05", "Skills & tools", "What I reach for.", ""),
+    "forecast": ("00", "Forecast", "Commit forecast.", "Issued daily · graded publicly"),
     "cadence": ("01", "Activity", "Shipping cadence.", "Redrawn daily"),
     "gnh": ("02", "Happiness", "Gross Developer Happiness.", "Bhutan's metric · my commits"),
 }
@@ -478,6 +479,7 @@ def contact(theme):
 
 if __name__ == "__main__":
     for th in THEMES:
+        heading(th, "forecast")
         heading(th, "cadence")
         heading(th, "gnh")
     total = sum(s for _, _, s in built)
