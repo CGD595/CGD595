@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="52" viewBox="0 0 220 52" role="img" aria-label="Portfolio">
+<style>
+.sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif}
+.mono{font-family:ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}.cover{display:none}.cycle text{opacity:1}.cycle text:not(:first-child){display:none}}
+
+.b{animation:b 3s ease-in-out infinite}
+@keyframes b{0%,100%{stroke-opacity:.35}50%{stroke-opacity:.9}}
+</style>
+
+<rect x="1" y="1" width="218" height="50" rx="26" fill="#0F1522" stroke="#F6B940" stroke-width="1.5" class="b"/>
+<circle cx="28" cy="26" r="13" fill="#F6B940" fill-opacity=".15"/>
+<text x="28" y="31" text-anchor="middle" class="mono" font-size="14" font-weight="700" fill="#F6B940">◎</text>
+<text x="52" y="31.5" class="sans" font-size="15.5" font-weight="650" fill="#EAEFF7">Portfolio</text>
+<text x="196" y="31" text-anchor="end" class="sans" font-size="15" fill="#5B6578">↗</text>
+
+</svg>
