@@ -10,7 +10,8 @@ import sys
 import urllib.request
 from datetime import date
 
-from kit import EASE, THEMES, Doc
+from kit import EASE, THEMES, Doc, wrap
+from knot import knot, slice_path
 
 LOGIN = sys.argv[1] if len(sys.argv) > 1 else "CGD595"
 QUERY = """query($l:String!){user(login:$l){contributionsCollection{contributionCalendar{
@@ -104,8 +105,103 @@ def build(theme, total, weeks):
     d.save("cadence.svg", theme)
 
 
+def build_knot(theme, weeks):
+    """Endless knot: every day of the year is one segment of a single woven strand."""
+    W, H = 1200, 600
+    days = [d for w in weeks for d in w]
+    D = len(days)
+    mx = max(d["contributionCount"] for d in days) or 1
+    lit = sum(1 for d in days if d["contributionCount"])
+    d = Doc(W, H, theme, f"An endless knot made of {D} days; {lit} of them glow where I shipped code")
+    t = d.t
+    cx, cy, size = 330, H / 2, 470
+    P, cum, over = knot(size, cx, cy)
+    total = cum[-1]
+    seg = total / D
+    SW = 11
+
+    def path(pts):
+        return "M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts)
+
+    def mix(a, b, k):
+        a, b = [int(a[i:i+2], 16) for i in (1, 3, 5)], [int(b[i:i+2], 16) for i in (1, 3, 5)]
+        return "#" + "".join(f"{round(x + (y - x) * k):02X}" for x, y in zip(a, b))
+
+    def style(v):
+        if not v:
+            return t["off"], 1
+        return mix(t["card"], t["primary"], 0.35 + 0.65 * (v / mx) ** 0.5), 1
+
+    tie = 4.6  # seconds for the knot to tie itself
+    d.css = f"""
+.k{{transform-origin:{cx}px {cy}px;animation:spin 240s linear infinite}}
+@keyframes spin{{to{{transform:rotate(360deg)}}}}
+.dd{{animation:dd .35s ease-out both}}
+@keyframes dd{{from{{opacity:0}}}}
+.now{{transform-box:fill-box;transform-origin:center;animation:now 2.2s ease-out infinite}}
+@keyframes now{{from{{transform:scale(1);opacity:.7}}to{{transform:scale(3.2);opacity:0}}}}
+.txt{{animation:txt .8s {EASE} both}}@keyframes txt{{from{{opacity:0;transform:translateY(10px)}}}}
+"""
+    d.add(f'<rect x=".5" y=".5" width="{W-1}" height="{H-1}" rx="20" fill="{t["card"]}" stroke="{t["border"]}"/>')
+    parts = ['<g class="k">', f'<path class="dd" d="{path(P)}Z" stroke="{t["off"]}"/>']
+    for i, day in enumerate(days):
+        c, o = style(day["contributionCount"])
+        parts.append(f'<path class="dd" style="animation-delay:{i*tie/D:.3f}s" d="{path(slice_path(P, cum, i*seg, (i+1)*seg + 1.5))}" '
+                     f'stroke="{c}" stroke-opacity="{o:.2f}"/>')
+    # over-crossings: cut a gap in the under strand, redraw the over strand on top
+    for idx in over:
+        s = cum[idx]
+        a, b = s - 14, s + 14
+        i0 = int(a // seg)
+        when = (int(s // seg) % D) * tie / D
+        bits = [f'<path d="{path(slice_path(P, cum, a, b))}" stroke="{t["card"]}" stroke-width="{SW+8}"/>']
+        k = i0
+        while k * seg < b:
+            lo, hi = max(a, k * seg), min(b, (k + 1) * seg + 1.5)
+            c, o = style(days[k % D]["contributionCount"])
+            bits.append(f'<path d="{path(slice_path(P, cum, lo, hi))}" stroke="{c}" stroke-opacity="{o:.2f}"/>')
+            k += 1
+        parts.append(f'<g class="dd" style="animation-delay:{when:.3f}s">' + "".join(bits) + "</g>")
+    # today = end of the strand
+    end = slice_path(P, cum, total - 1, total)[-1]
+    parts.append(f'<g class="dd" style="animation-delay:{tie:.2f}s"><circle class="now" cx="{end[0]:.1f}" cy="{end[1]:.1f}" r="7" fill="{t["primary"]}"/>'
+                 f'<circle cx="{end[0]:.1f}" cy="{end[1]:.1f}" r="7" fill="{t["fg"]}" stroke="{t["card"]}" stroke-width="3"/></g>')
+    parts.append("</g>")
+    d.add(f'<g fill="none" stroke-width="{SW}" stroke-linejoin="round">' + "".join(parts) + "</g>")
+
+    x = 660
+    d.add('<g class="txt" style="animation-delay:.3s">')
+    d.add(d.tspan_text(x, 150, [("ENDLESS KNOT", t["primary"], None), (f"  ·  {D} DAYS", t["muted"], None)], "m", 13, 0.18))
+    yy = 206
+    for ln in ["One line.", "No beginning, no end."]:
+        d.add(d.text(x - 2, yy, ln, "h", 44, t["fg"], -0.035))
+        yy += 52
+    yy += 14
+    body = ("Every day of my last year is one segment of a single unbroken strand, woven over and under itself. "
+            "It glows where I shipped and dims where I rested. It ties itself again every morning.")
+    for ln in wrap(body, 470, "b", 18):
+        d.add(d.text(x, yy, ln, "b", 18, t["muted"]))
+        yy += 29
+    yy += 30
+    # legend
+    lx = x
+    d.add(f'<path d="M{lx} {yy}h34" stroke="{t["off"]}" stroke-width="{SW}"/>')
+    d.add(d.text(lx + 46, yy + 5, "REST", "m", 12, t["muted"], 0.16))
+    lx += 120
+    for j, op in enumerate([0.4, 0.65, 1.0]):
+        d.add(f'<path d="M{lx + j*20} {yy}h18" stroke="{mix(t["card"], t["primary"], op)}" stroke-width="{SW}"/>')
+    d.add(d.text(lx + 72, yy + 5, "SHIPPED", "m", 12, t["muted"], 0.16))
+    lx += 190
+    d.add(f'<circle cx="{lx+6}" cy="{yy}" r="6" fill="{t["fg"]}"/>')
+    d.add(d.text(lx + 22, yy + 5, "TODAY", "m", 12, t["muted"], 0.16))
+    d.add(d.text(x, H - 52, f"{lit} OF {D} DAYS LIT", "m", 12.5, t["fg"], 0.16))
+    d.add("</g>")
+    d.save("knot.svg", theme)
+
+
 if __name__ == "__main__":
     total, weeks = fetch()
     for th in THEMES:
         build(th, total, weeks)
+        build_knot(th, weeks)
     print(f"cadence: {total} contributions")
