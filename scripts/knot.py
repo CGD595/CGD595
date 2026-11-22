@@ -1,87 +1,101 @@
-"""Geometry for a single-strand endless knot.
+"""Geometry for the traditional endless knot (dpal be'u).
 
-A 4x4 woven lattice whose 16 line ends are joined by non-crossing outer
-loops. The pairing below was found by exhaustive search: it is the
-rotationally symmetric layout that closes into exactly one strand.
+Classic construction: an n x n woven lattice (n odd) of straight ribbons.
+On every side neighbouring ribbons are joined by square U-turns, and the one
+ribbon left over on each side turns the corner to meet its neighbour. Every
+turn encloses a small square hole, which gives the knot its "rings".
+n=3 is the 9-crossing textbook form; n=5 (used here) has 25 crossings.
+For odd n this is always a single closed strand.
 """
 import math
 
-N = 4
-PAIRS = [
-    (("T", 1), ("T", 2)), (("T", 3), ("L", 1)), (("T", 4), ("R", 3)), (("R", 1), ("R", 2)),
-    (("R", 4), ("B", 2)), (("B", 4), ("B", 3)), (("B", 1), ("L", 2)), (("L", 4), ("L", 3)),
-]
+N = 5
 
 
-def _path(g=1.0, h_turn=0.8, h_petal=2.3, res=60):
-    L = (N + 1) * g
+def _ends_pairing(n):
+    pr = [(("T", k), ("T", k + 1)) for k in range(1, n, 2)]
+    pr.append((("T", n), ("R", 1)))
+    pr += [(("R", k), ("R", k + 1)) for k in range(2, n + 1, 2)]
+    pr += [(("B", k), ("B", k - 1)) for k in range(n, 1, -2)]
+    pr.append((("B", 1), ("L", n)))
+    pr += [(("L", k), ("L", k + 1)) for k in range(1, n, 2)]
+    return pr
 
-    def end(e):
+
+def _corners(n=N):
+    """Centerline as a closed rectilinear polygon (grid units), plus crossing visits."""
+    p = [2 * i for i in range(n)]
+    P = p[-1]
+
+    def stub(e):
         s, k = e
-        return {"L": ((0, k * g), (-1, 0)), "R": ((L, k * g), (1, 0)),
-                "T": ((k * g, 0), (0, -1)), "B": ((k * g, L), (0, 1))}[s]
+        i = k - 1
+        return {"T": (p[i], -2), "B": (p[i], P + 2), "L": (-2, p[i]), "R": (P + 2, p[i])}[s]
 
     through = {}
-    for k in range(1, N + 1):
+    for k in range(1, n + 1):
         through[("L", k)], through[("R", k)] = ("R", k), ("L", k)
         through[("T", k)], through[("B", k)] = ("B", k), ("T", k)
     arc = {}
-    for a, b in PAIRS:
+    for a, b in _ends_pairing(n):
         arc[a], arc[b] = b, a
 
-    pts, crossings = [], []
+    pts = []
     start = e = ("L", 1)
     while True:
         f = through[e]
-        (x0, y0), _ = end(e)
-        (x1, y1), _ = end(f)
-        for i in range(res):
-            t = i / res
-            x, y = x0 + (x1 - x0) * t, y0 + (y1 - y0) * t
-            # lattice crossing?  (every res/(N+1) steps)
-            if i and i % (res // (N + 1)) == 0:
-                horiz = e[0] in "LR"
-                ci, cj = (round(x / g), round(y / g))
-                crossings.append((len(pts), ci, cj, horiz))
-            pts.append((x, y))
-        g2 = arc[f]
-        (ax, ay), (adx, ady) = end(f)
-        (bx, by), (bdx, bdy) = end(g2)
-        h = (h_turn if f[0] == g2[0] else h_petal) * g
-        c1, c2 = (ax + adx * h, ay + ady * h), (bx + bdx * h, by + bdy * h)
-        m = res if f[0] == g2[0] else int(res * 2.4)
-        for i in range(m):
-            t = i / m
-            u = 1 - t
-            pts.append((u**3 * ax + 3 * u * u * t * c1[0] + 3 * u * t * t * c2[0] + t**3 * bx,
-                        u**3 * ay + 3 * u * u * t * c1[1] + 3 * u * t * t * c2[1] + t**3 * by))
-        e = g2
+        pts.append(stub(e))
+        pts.append(stub(f))
+        g = arc[f]
+        if f[0] != g[0]:  # corner turn: go round the outer corner point
+            a, b = stub(f), stub(g)
+            pts.append((b[0], a[1]) if f[0] in "TB" else (a[0], b[1]))
+        e = g
         if e == start:
             break
-    return pts, crossings, L
+    # drop consecutive duplicates
+    out = []
+    for q in pts:
+        if not out or out[-1] != q:
+            out.append(q)
+    return out, p
 
 
-def knot(size, cx, cy):
-    """Returns (points, cumulative lengths, total, over_indices) fitted into a size x size box."""
-    pts, crossings, L = _path()
-    rot = [((x - L / 2 - (y - L / 2)) / math.sqrt(2), (x - L / 2 + (y - L / 2)) / math.sqrt(2)) for x, y in pts]
-    xs, ys = [p[0] for p in rot], [p[1] for p in rot]
-    s = size / max(max(xs) - min(xs), max(ys) - min(ys))
-    mx, my = (max(xs) + min(xs)) / 2, (max(ys) + min(ys)) / 2
-    P = [(cx + (x - mx) * s, cy + (y - my) * s) for x, y in rot]
+def knot(size, cx, cy, step=0.05):
+    """Dense closed polyline fitted to size (rotated 45 deg), cumulative lengths,
+    indices of over-crossings, and the grid unit in px."""
+    corners, p = _corners()
+    lattice = set(p)
+    dense, over = [], []
+    for a, b in zip(corners, corners[1:] + corners[:1]):
+        horiz = a[1] == b[1]
+        L = abs(b[0] - a[0]) + abs(b[1] - a[1])
+        n = max(1, round(L / step))
+        for s in range(n):
+            t = s / n
+            x, y = a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t
+            if s and abs(x - round(x)) < 1e-9 and abs(y - round(y)) < 1e-9:
+                xi, yi = round(x), round(y)
+                if xi in lattice and yi in lattice:
+                    i, j = p.index(xi), p.index(yi)
+                    if horiz == ((i + j) % 2 == 0):
+                        over.append(len(dense))
+            dense.append((x, y))
+    c = p[-1] / 2
+    rot = [((x - c) - (y - c), (x - c) + (y - c)) for x, y in dense]
+    rot = [(u / math.sqrt(2), v / math.sqrt(2)) for u, v in rot]
+    span = (p[-1] + 4) * math.sqrt(2) + 1  # outer extent incl. ribbon width
+    unit = size / span
+    P = [(cx + u * unit, cy + v * unit) for u, v in rot]
     cum = [0.0]
     for i in range(1, len(P) + 1):
-        a, b = P[i - 1], P[i % len(P)]
-        cum.append(cum[-1] + math.dist(a, b))
-    # alternating weave: horizontal strand is over when i+j is even
-    over = [idx for idx, i, j, horiz in crossings if horiz == ((i + j) % 2 == 0)]
-    return P, cum, over
+        cum.append(cum[-1] + math.dist(P[i - 1], P[i % len(P)]))
+    return P, cum, over, unit
 
 
 def slice_path(P, cum, s0, s1):
-    """Points of the closed polyline between arc lengths s0..s1 (s may wrap)."""
+    """Points of the closed polyline between arc lengths s0..s1 (wraps)."""
     total = cum[-1]
-    out = []
 
     def at(s):
         s %= total
@@ -93,15 +107,12 @@ def slice_path(P, cum, s0, s1):
             else:
                 hi = mid
         a, b = P[lo % len(P)], P[(lo + 1) % len(P)]
-        seg = cum[lo + 1] - cum[lo] or 1
-        t = (s - cum[lo]) / seg
+        t = (s - cum[lo]) / ((cum[lo + 1] - cum[lo]) or 1)
         return (a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t), lo
 
     p0, i0 = at(s0)
     p1, i1 = at(s1)
-    out.append(p0)
-    i = i0 + 1
-    n = len(P)
+    out, n, i = [p0], len(P), i0 + 1
     steps = 0
     while (i % n) != ((i1 + 1) % n) and steps < n:
         out.append(P[i % n])

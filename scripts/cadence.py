@@ -5,6 +5,7 @@
     GITHUB_TOKEN=... python3 scripts/cadence.py [login]
 """
 import json
+import math
 import os
 import sys
 import urllib.request
@@ -114,11 +115,11 @@ def build_knot(theme, weeks):
     lit = sum(1 for d in days if d["contributionCount"])
     d = Doc(W, H, theme, f"An endless knot made of {D} days; {lit} of them glow where I shipped code")
     t = d.t
-    cx, cy, size = 330, H / 2, 470
-    P, cum, over = knot(size, cx, cy)
+    cx, cy, size = 330, H / 2, 500
+    P, cum, over, unit = knot(size, cx, cy)
     total = cum[-1]
     seg = total / D
-    SW = 11
+    SW = round(unit * 0.74, 1)
 
     def path(pts):
         return "M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts)
@@ -127,15 +128,8 @@ def build_knot(theme, weeks):
         a, b = [int(a[i:i+2], 16) for i in (1, 3, 5)], [int(b[i:i+2], 16) for i in (1, 3, 5)]
         return "#" + "".join(f"{round(x + (y - x) * k):02X}" for x, y in zip(a, b))
 
-    def style(v):
-        if not v:
-            return t["off"], 1
-        return mix(t["card"], t["primary"], 0.35 + 0.65 * (v / mx) ** 0.5), 1
-
     tie = 4.6  # seconds for the knot to tie itself
     d.css = f"""
-.k{{transform-origin:{cx}px {cy}px;animation:spin 240s linear infinite}}
-@keyframes spin{{to{{transform:rotate(360deg)}}}}
 .dd{{animation:dd .35s ease-out both}}
 @keyframes dd{{from{{opacity:0}}}}
 .now{{transform-box:fill-box;transform-origin:center;animation:now 2.2s ease-out infinite}}
@@ -143,35 +137,86 @@ def build_knot(theme, weeks):
 .txt{{animation:txt .8s {EASE} both}}@keyframes txt{{from{{opacity:0;transform:translateY(10px)}}}}
 """
     d.add(f'<rect x=".5" y=".5" width="{W-1}" height="{H-1}" rx="20" fill="{t["card"]}" stroke="{t["border"]}"/>')
-    parts = ['<g class="k">', f'<path class="dd" d="{path(P)}Z" stroke="{t["off"]}"/>']
-    for i, day in enumerate(days):
-        c, o = style(day["contributionCount"])
-        parts.append(f'<path class="dd" style="animation-delay:{i*tie/D:.3f}s" d="{path(slice_path(P, cum, i*seg, (i+1)*seg + 1.5))}" '
-                     f'stroke="{c}" stroke-opacity="{o:.2f}"/>')
+    # intensity level per day: 0 = rest, 1..4 = shipped (3-day smoothed so runs read as ribbons)
+    counts = [x["contributionCount"] for x in days]
+    sm = [sum(counts[max(0, i - 1):i + 2]) / len(counts[max(0, i - 1):i + 2]) for i in range(D)]
+    smx = max(sm) or 1
+    level = [0 if not c else 1 + min(3, int(4 * (v / smx) ** 0.5)) for c, v in zip(counts, sm)]
+    shades = [t["off"]] + [mix(t["card"], t["primary"], k) for k in (0.42, 0.6, 0.8, 1.0)]
+
+    # corners of the centerline (arc lengths) so colour changes never sit on a bend
+    corner_s = []
+    for i in range(len(P)):
+        a, b, c = P[i - 1], P[i], P[(i + 1) % len(P)]
+        if abs((b[0] - a[0]) * (c[1] - b[1]) - (b[1] - a[1]) * (c[0] - b[0])) > 1e-6:
+            corner_s.append(cum[i])
+
+    # every crossing is visited twice; keep colour changes off both visits too
+    def lattice_hits():
+        hits = []
+        for i in range(len(P)):
+            for j in over:
+                if i != j and math.dist(P[i], P[j]) < 0.5:
+                    hits.append(cum[i])
+        return hits
+    keepout = sorted(corner_s + [cum[j] for j in over] + lattice_hits())
+
+    def snap(x):
+        for _ in range(4):
+            moved = False
+            for cs in keepout:
+                if abs(x - cs) < SW / 2 + 10:
+                    x, moved = cs + SW / 2 + 10, True
+            if not moved:
+                break
+        return x
+
+    runs, i = [], 0
+    while i < D:
+        j = i
+        while j + 1 < D and level[j + 1] == level[i]:
+            j += 1
+        runs.append((i, j, level[i]))
+        i = j + 1
+    bounds = [0.0] + [snap((r[1] + 1) * seg) for r in runs[:-1]] + [total]
+    for k in range(1, len(bounds)):
+        bounds[k] = min(total, max(bounds[k], bounds[k - 1]))
+
+    def level_at(x):
+        for k, r in enumerate(runs):
+            if bounds[k] <= x < bounds[k + 1]:
+                return r[2]
+        return runs[-1][2]
+
+    edge = t["bg"]
+    parts = ['<g>', f'<path d="{path(P)}Z" stroke="{edge}" stroke-width="{SW+2.5}"/>',
+             f'<path d="{path(P)}Z" stroke="{t["off"]}"/>']
+    for k, (i0, i1, lv) in enumerate(runs):
+        if lv == 0 or bounds[k + 1] - bounds[k] < 5:
+            continue
+        parts.append(f'<path class="dd" style="animation-delay:{i0*tie/D:.3f}s" '
+                     f'd="{path(slice_path(P, cum, bounds[k] - 0.8, bounds[k+1] + 0.8))}" stroke="{shades[lv]}"/>')
     # over-crossings: cut a gap in the under strand, redraw the over strand on top
     for idx in over:
-        s = cum[idx]
-        a, b = s - 14, s + 14
-        i0 = int(a // seg)
-        when = (int(s // seg) % D) * tie / D
-        bits = [f'<path d="{path(slice_path(P, cum, a, b))}" stroke="{t["card"]}" stroke-width="{SW+8}"/>']
-        k = i0
-        while k * seg < b:
-            lo, hi = max(a, k * seg), min(b, (k + 1) * seg + 1.5)
-            c, o = style(days[k % D]["contributionCount"])
-            bits.append(f'<path d="{path(slice_path(P, cum, lo, hi))}" stroke="{c}" stroke-opacity="{o:.2f}"/>')
-            k += 1
-        parts.append(f'<g class="dd" style="animation-delay:{when:.3f}s">' + "".join(bits) + "</g>")
+        s0 = cum[idx]
+        a, b = s0 - (SW / 2 + 9), s0 + (SW / 2 + 9)
+        seg_pts = path(slice_path(P, cum, a, b))
+        lv = level_at(s0)
+        when = (int(s0 // seg) % D) * tie / D
+        parts.append(f'<g class="dd" style="animation-delay:{when:.3f}s">'
+                     f'<path d="{seg_pts}" stroke="{t["card"]}" stroke-width="{SW+5}"/>'
+                     f'<path d="{seg_pts}" stroke="{edge}" stroke-width="{SW+2.5}"/>'
+                     f'<path d="{seg_pts}" stroke="{shades[lv]}"/></g>')
     # today = end of the strand
     end = slice_path(P, cum, total - 1, total)[-1]
-    parts.append(f'<g class="dd" style="animation-delay:{tie:.2f}s"><circle class="now" cx="{end[0]:.1f}" cy="{end[1]:.1f}" r="7" fill="{t["primary"]}"/>'
-                 f'<circle cx="{end[0]:.1f}" cy="{end[1]:.1f}" r="7" fill="{t["fg"]}" stroke="{t["card"]}" stroke-width="3"/></g>')
+    parts.append(f'<g class="dd" style="animation-delay:{tie:.2f}s"><circle class="now" cx="{end[0]:.1f}" cy="{end[1]:.1f}" r="{SW/2:.1f}" fill="{t["primary"]}"/>'
+                 f'<circle cx="{end[0]:.1f}" cy="{end[1]:.1f}" r="{SW/2-1:.1f}" fill="{t["fg"]}" stroke="{t["card"]}" stroke-width="3"/></g>')
     parts.append("</g>")
-    d.add(f'<g fill="none" stroke-width="{SW}" stroke-linejoin="round">' + "".join(parts) + "</g>")
+    d.add(f'<g fill="none" stroke-width="{SW}" stroke-linejoin="miter" stroke-miterlimit="4">' + "".join(parts) + "</g>")
 
     x = 660
     d.add('<g class="txt" style="animation-delay:.3s">')
-    d.add(d.tspan_text(x, 150, [("ENDLESS KNOT", t["primary"], None), (f"  ·  {D} DAYS", t["muted"], None)], "m", 13, 0.18))
+    d.add(d.tspan_text(x, 150, [("ENDLESS KNOT · PALBEU", t["primary"], None), (f"  ·  {D} DAYS", t["muted"], None)], "m", 13, 0.18))
     yy = 206
     for ln in ["One line.", "No beginning, no end."]:
         d.add(d.text(x - 2, yy, ln, "h", 44, t["fg"], -0.035))
@@ -185,11 +230,11 @@ def build_knot(theme, weeks):
     yy += 30
     # legend
     lx = x
-    d.add(f'<path d="M{lx} {yy}h34" stroke="{t["off"]}" stroke-width="{SW}"/>')
+    d.add(f'<path d="M{lx} {yy}h34" stroke="{t["off"]}" stroke-width="12"/>')
     d.add(d.text(lx + 46, yy + 5, "REST", "m", 12, t["muted"], 0.16))
     lx += 120
     for j, op in enumerate([0.4, 0.65, 1.0]):
-        d.add(f'<path d="M{lx + j*20} {yy}h18" stroke="{mix(t["card"], t["primary"], op)}" stroke-width="{SW}"/>')
+        d.add(f'<path d="M{lx + j*20} {yy}h18" stroke="{mix(t["card"], t["primary"], op)}" stroke-width="12"/>')
     d.add(d.text(lx + 72, yy + 5, "SHIPPED", "m", 12, t["muted"], 0.16))
     lx += 190
     d.add(f'<circle cx="{lx+6}" cy="{yy}" r="6" fill="{t["fg"]}"/>')
