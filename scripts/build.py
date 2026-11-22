@@ -238,16 +238,15 @@ def pill(theme, slug, label, filled):
 # section heading:   01 / LABEL   then   Big phrase.
 # --------------------------------------------------------------------------
 def heading(theme, key):
-    no, label, phrase, meta = SECTIONS[key]
-    H = 150
-    d = Doc(W, H, theme, f"{label} — {phrase}")
+    _, _, phrase, meta = SECTIONS[key]
+    H = 104
+    d = Doc(W, H, theme, phrase)
     t = d.t
     d.css = f".rule{{transform-origin:0 0;animation:rule 1.4s {EASE} both}}@keyframes rule{{from{{transform:scaleX(0)}}}}"
-    d.add(d.tspan_text(4, 44, [(no, t["primary"], None), ("  /  " + label.upper(), t["muted"], None)], "m", 14, 0.18))
     body, dot = (phrase[:-1], ".") if phrase.endswith(".") else (phrase, "")
-    d.add(d.tspan_text(0, 116, [(body, t["fg"], None), (dot, t["primary"], None)], "h", 62, -0.03))
+    d.add(d.tspan_text(0, 70, [(body, t["fg"], None), (dot, t["primary"], None)], "h", 62, -0.03))
     if meta:
-        d.add(d.text(W - 4, 112, meta.upper(), "m", 13, t["muted"], 0.16, anchor="end"))
+        d.add(d.text(W - 4, 66, meta.upper(), "m", 13, t["muted"], 0.16, anchor="end"))
     d.add(f'<rect class="rule" x="4" y="{H-2}" width="{W-8}" height="1" fill="{t["border"]}"/>')
     out(d, f"h-{key}.svg", theme)
 
